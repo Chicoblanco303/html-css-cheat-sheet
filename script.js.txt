@@ -1,0 +1,225 @@
+var S=[
+{l:'html',t:'Page skeleton',k:'doctype head body meta title starter boilerplate',d:'The minimum every page needs.',c:'<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="width=device-width, initial-scale=1">\n  <title>My page</title>\n</head>\n<body>\n  <h1>Hello, world</h1>\n</body>\n</html>'},
+{l:'html',t:'Headings and text',k:'h1 h2 p strong em br hr paragraph bold italic',d:'Headings go from h1 (most important) to h6.',c:'<h1>Main title</h1>\n<h2>Section title</h2>\n<p>A paragraph with <strong>bold</strong>, <em>italic</em> and <mark>highlighted</mark> text.</p>\n<hr>\n<small>Small print</small>'},
+{l:'html',t:'Links and images',k:'a href img src alt anchor target picture',d:'Always write alt text so everyone can use your images.',c:'<a href="https://developer.mozilla.org" target="_blank" rel="noopener">Open MDN</a>\n<br><br>\n<img src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27120%27 height=%2780%27%3E%3Crect width=%27120%27 height=%2780%27 fill=%27%23f16529%27/%3E%3C/svg%3E" alt="Orange rectangle" width="120">'},
+{l:'html',t:'Lists',k:'ul ol li unordered ordered dl',d:'Bullets, numbers and definitions.',c:'<ul>\n  <li>Apples</li>\n  <li>Oranges</li>\n</ul>\n<ol>\n  <li>Preheat</li>\n  <li>Bake</li>\n</ol>'},
+{l:'html',t:'Table',k:'table tr td th thead tbody grid data rows',d:'For data only, not for page layout.',c:'<table border="1" cellpadding="6">\n  <thead>\n    <tr><th>Tag</th><th>Use</th></tr>\n  </thead>\n  <tbody>\n    <tr><td>&lt;p&gt;</td><td>Paragraph</td></tr>\n    <tr><td>&lt;a&gt;</td><td>Link</td></tr>\n  </tbody>\n</table>'},
+{l:'html',t:'Form controls',k:'form input label button select textarea checkbox radio submit',d:'Pair each input with a label.',c:'<form>\n  <label>Name <input type="text" placeholder="Ada"></label><br><br>\n  <label>Email <input type="email"></label><br><br>\n  <label><input type="checkbox"> Subscribe</label><br><br>\n  <select><option>Beginner</option><option>Expert</option></select>\n  <button type="button">Send</button>\n</form>'},
+{l:'html',t:'Semantic layout',k:'header nav main section article aside footer div semantic',d:'Tags that describe what a block is, not just how it looks.',c:'<header>Site header</header>\n<nav>Nav links</nav>\n<main>\n  <article>An article</article>\n  <aside>A side note</aside>\n</main>\n<footer>Site footer</footer>\n<style>body>*{border:2px solid #264de4;margin:4px;padding:6px}</style>'},
+{l:'css',t:'Selectors',k:'selector class id element pseudo child descendant universal',d:'Choose what to style.',c:'<p>Plain</p>\n<p class="hot">Class</p>\n<p id="one">ID</p>\n<div><p>Inside a div</p></div>\n<style>\n  p{color:#264de4}\n  .hot{color:#f16529}\n  #one{font-weight:bold}\n  div > p{background:#fde8df}\n</style>'},
+{l:'css',t:'Colors and backgrounds',k:'color background hex rgb hsl gradient opacity',d:'Names, hex, rgb(), hsl() and gradients.',c:'<div class="a">hex</div>\n<div class="b">gradient</div>\n<style>\n  div{padding:18px;margin:6px 0;color:#fff;border-radius:8px}\n  .a{background:#264de4}\n  .b{background:linear-gradient(90deg,#f16529,#264de4)}\n</style>'},
+{l:'css',t:'Typography',k:'font-family font-size font-weight line-height text-align letter-spacing text-decoration',d:'Control how text looks and reads.',c:'<h2>Readable text</h2>\n<p>Aim for 45 to 75 characters per line and generous line height.</p>\n<style>\n  body{font-family:Georgia,serif}\n  h2{font-size:28px;letter-spacing:-.5px;color:#264de4}\n  p{line-height:1.7;max-width:38ch}\n</style>'},
+{l:'css',t:'Box model',k:'margin padding border width height box-sizing content',d:'Every element is a box: content, padding, border, margin.',c:'<div class="box">Content</div>\n<style>\n  .box{\n    width:160px;\n    padding:20px;\n    border:6px solid #f16529;\n    margin:20px;\n    background:#e6ecff;\n    box-sizing:border-box;\n  }\n</style>'},
+{l:'css',t:'Positioning',k:'position relative absolute fixed sticky top left z-index',d:'Place an element relative to itself or its parent.',c:'<div class="wrap">\n  <span class="tag">New</span>\n  Card content\n</div>\n<style>\n  .wrap{position:relative;padding:30px;background:#e6ecff;border-radius:8px}\n  .tag{position:absolute;top:8px;right:8px;background:#f16529;color:#fff;padding:2px 8px;border-radius:99px}\n</style>'},
+{l:'css',t:'Hover and transitions',k:'hover transition transform animation focus pseudo-class',d:'Hover over the button in the preview.',c:'<button>Hover me</button>\n<style>\n  button{padding:12px 22px;border:0;border-radius:8px;background:#264de4;color:#fff;font-size:16px;\n    transition:transform .2s, background .2s}\n  button:hover{background:#f16529;transform:translateY(-3px)}\n</style>'},
+{l:'css',t:'CSS variables',k:'custom properties var root theme --',d:'Define a value once and reuse it.',c:'<button>One</button> <button class="alt">Two</button>\n<style>\n  :root{--brand:#264de4;--accent:#f16529}\n  button{background:var(--brand);color:#fff;border:0;padding:10px 18px;border-radius:6px}\n  .alt{background:var(--accent)}\n</style>'},
+{l:'css',t:'Media query',k:'media responsive mobile breakpoint max-width min-width',d:'Resize the preview pane: the color changes below 400px.',c:'<div class="box">Resize me</div>\n<style>\n  .box{padding:24px;background:#264de4;color:#fff}\n  @media (max-width:400px){\n    .box{background:#f16529}\n  }\n</style>'}
+];
+S.push(
+{l:'html',t:'Expandable details',k:'details summary accordion toggle faq open',d:'A built-in show and hide widget, no JavaScript needed.',c:'<details open>\n  <summary>What is HTML?</summary>\n  <p>The language that gives a web page its structure.</p>\n</details>\n<details>\n  <summary>What is CSS?</summary>\n  <p>The language that styles it.</p>\n</details>'},
+{l:'html',t:'Input types',k:'input type date color range number password email file search tel url',d:'The type attribute gives you the right keyboard and picker.',c:'<p><input type="date"></p>\n<p><input type="color" value="#f16529"></p>\n<p><input type="range" min="0" max="10"></p>\n<p><input type="number" min="1" max="5" placeholder="1 to 5"></p>\n<p><input type="password" placeholder="Password"></p>'},
+{l:'html',t:'Special characters and inline tags',k:'entity entities amp lt gt copy kbd code sub sup span mark small',d:'Show reserved characters and mark up small bits of text.',c:'<p>5 &lt; 10 &amp; 10 &gt; 5 &copy; 2026</p>\n<p>Press <kbd>Ctrl</kbd> + <kbd>C</kbd></p>\n<p>H<sub>2</sub>O and x<sup>2</sup></p>\n<p>Use <code>let a = 1;</code> in JavaScript.</p>'},
+{l:'css',t:'Pseudo-classes and pseudo-elements',k:'nth-child first-child last-child before after content hover focus pseudo',d:'Style by position or state, or add content with CSS.',c:'<ul>\n  <li>One</li><li>Two</li><li>Three</li><li>Four</li>\n</ul>\n<style>\n  li:nth-child(odd){color:#264de4}\n  li:first-child{font-weight:bold}\n  li::before{content:"+ ";color:#f16529}\n</style>'},
+{l:'css',t:'Animations',k:'keyframes animation duration infinite ease transform rotate bounce',d:'Define steps with @keyframes, then apply them.',c:'<div class="dot"></div>\n<style>\n  .dot{width:50px;height:50px;border-radius:50%;background:#f16529;\n    animation:bounce 1s ease-in-out infinite}\n  @keyframes bounce{\n    0%,100%{transform:translateY(0)}\n    50%{transform:translateY(60px)}\n  }\n</style>'},
+{l:'css',t:'Units and clamp()',k:'px rem em vh vw percent clamp min max fluid responsive unit size',d:'Sizes that scale. clamp(min, preferred, max) keeps text fluid.',c:'<h1>Fluid heading</h1>\n<p class="half">50% of the width</p>\n<style>\n  h1{font-size:clamp(1.5rem, 6vw, 3rem);color:#264de4}\n  .half{width:50%;padding:1rem;background:#fde8df}\n</style>'},
+{l:'css',t:'Borders and shadows',k:'border-radius box-shadow outline border rounded circle card',d:'Round corners and lift elements off the page.',c:'<div class="card">Rounded card</div>\n<style>\n  .card{padding:24px;border:2px solid #264de4;border-radius:16px;\n    box-shadow:0 8px 20px rgba(38,77,228,.25)}\n</style>'},
+{l:'css',t:'Display and overflow',k:'display none block inline inline-block overflow hidden scroll auto visibility',d:'Control how boxes flow and what happens when content is too big.',c:'<div class="box">A long line of text that does not fit inside this small box, so it scrolls.</div>\n<style>\n  .box{width:140px;height:60px;overflow:auto;border:2px solid #f16529;padding:6px}\n</style>'}
+);
+var R=[
+'html|<a href>|Link to another page or a place on this one','html|<img src alt>|Image, with text for screen readers','html|<div>|Generic block container with no meaning','html|<span>|Generic inline container','html|<button>|Clickable button','html|<label for>|Names a form field and widens its click area','html|<section>|Themed group of content, usually with a heading','html|<meta viewport>|Makes the page scale properly on phones','css|color|Text color','css|background|Color, image or gradient behind an element','css|margin|Space outside the border','css|padding|Space between content and border','css|width / max-width|Size of the box; max-width stops it growing past a limit','css|display|How the box behaves: block, inline, flex, grid, none','css|position|Where the element sits: static, relative, absolute, fixed, sticky','css|justify-content|Spreads flex items along the main axis','css|align-items|Aligns flex items across the main axis','css|gap|Space between flex or grid items','css|grid-template-columns|Defines the columns of a grid','css|font-size|Text size','css|line-height|Space between lines of text','css|text-align|Left, center, right or justify','css|border-radius|Rounds the corners','css|opacity|Transparency from 0 to 1','css|z-index|Stacking order of positioned elements','css|transition|Animates a change over time','css|cursor|Mouse pointer style, like pointer','css|:hover|Applies when the pointer is over the element'];
+S.push({l:'css',t:'Grid areas',k:'grid-template-areas grid-area named areas page layout header sidebar footer',d:'Draw your page layout with names, then place items by name.',c:'<div class="page">\n  <header>Header</header><nav>Nav</nav><main>Main</main><footer>Footer</footer>\n</div>\n<style>\n  .page{display:grid;gap:6px;height:180px;\n    grid-template-columns:90px 1fr;\n    grid-template-rows:36px 1fr 36px;\n    grid-template-areas:"header header" "nav main" "footer footer"}\n  header{grid-area:header} nav{grid-area:nav}\n  main{grid-area:main} footer{grid-area:footer}\n  .page>*{background:#e6ecff;padding:6px;border-radius:6px}\n</style>'});
+R.push('css|grid-template-areas|Names the regions of a grid layout','css|grid-area|Places an item in a named area','css|grid-column / grid-row|Spans an item across tracks, like 1 / 3','css|minmax()|Sets the smallest and largest size of a track','css|repeat(auto-fit, minmax())|Responsive columns with no media query','css|place-items|Shorthand for align-items and justify-items');
+var M={'Page skeleton':'Leaving out &lt;!DOCTYPE html&gt; makes browsers use old quirks mode.','Headings and text':'Picking a heading for its size. Use CSS for size and headings for structure.','Links and images':'Skipping alt text, or opening a new tab without rel="noopener".','Lists':'Putting text straight inside &lt;ul&gt;. Only &lt;li&gt; belongs there.','Table':'Using tables to lay out a page. Keep them for data.','Form controls':'An input with no label. Screen readers cannot name it.','Semantic layout':'Wrapping everything in &lt;div&gt; when a meaningful tag exists.','Expandable details':'Forgetting &lt;summary&gt;. The browser adds a default label instead.','Input types':'Trusting type alone for validation. Always check on the server too.','Special characters and inline tags':'Typing a bare &lt; or &amp; in text. Use &amp;lt; and &amp;amp; instead.','Selectors':'Overusing IDs. They are hard to override, so prefer classes.','Colors and backgrounds':'Low contrast. Check that text stands out from its background.','Typography':'Lines that run too long. Limit them with max-width in ch units.','Box model':'Width plus padding makes boxes bigger than expected. Add box-sizing: border-box.','Positioning':'Using absolute without a relative parent, so the item jumps to the page corner.','Hover and transitions':'Hover-only effects do not work on touch screens. Never hide key info behind them.','CSS variables':'Forgetting var(). Writing color: --brand does nothing.','Media query':'Forgetting the viewport meta tag, so phones ignore your breakpoints.','Pseudo-classes and pseudo-elements':'Forgetting content: "" on ::before, so nothing shows up.','Animations':'Animating width or top. Prefer transform and opacity for smooth motion.','Units and clamp()':'Using px for font sizes ignores the reader’s text settings. Prefer rem.','Borders and shadows':'Forgetting overflow: hidden on a parent, so children poke out of rounded corners.','Display and overflow':'Setting width on an inline element. It does nothing until you change display.','Grid areas':'Mismatched area names. Every name in grid-area must appear in grid-template-areas.'};
+var PH,PC,PF,pt,PD={h:'<h1>Hello</h1>\n<p class="note">Edit me, then try the examples below.</p>',c:'.note{\n  color:#f16529;\n  font-weight:bold;\n}'};
+function pdoc(){return '<!DOCTYPE html><meta charset="utf-8"><style>body{font:15px/1.5 system-ui,sans-serif;margin:14px;color:#14213d}</style><style>'+PC.value+'</style>'+PH.value}
+function pup(now){clearTimeout(pt);var f=function(){PF.srcdoc=pdoc();store('pg-html',PH.value===PD.h?null:PH.value);store('pg-css',PC.value===PD.c?null:PC.value)};if(now)f();else pt=setTimeout(f,200)}
+function pset(h,c){PH.value=h;PC.value=c;pup(true)}
+function splitCode(c){var css=[],h=c.replace(/<style[^>]*>([\s\S]*?)<\/style>/gi,function(m,x){css.push(x.trim());return ''});return{h:h.trim(),c:css.join('\n\n')}}
+function toPlayground(code){var p=splitCode(code),el=qs('#playground');pset(p.h,p.c);el.scrollIntoView();el.classList.add('flash');setTimeout(function(){el.classList.remove('flash')},1800)}
+function initPlayground(){
+ PH=qs('#phtml');PC=qs('#pcss');PF=qs('#pframe');
+ var a=load('pg-html'),b=load('pg-css'),ok=qs('#pok');
+ PH.value=a!==null?a:PD.h;PC.value=b!==null?b:PD.c;PF.srcdoc=pdoc();
+ [PH,PC].forEach(function(t){
+  t.addEventListener('input',function(){pup()});
+  t.addEventListener('keydown',function(e){if(e.key==='Tab'&&!e.shiftKey&&!e.ctrlKey){e.preventDefault();var p=t.selectionStart;t.value=t.value.slice(0,p)+'  '+t.value.slice(t.selectionEnd);t.selectionStart=t.selectionEnd=p+2;pup()}});
+ });
+ qs('#pch').onclick=function(){copy(PH.value,ok)};
+ qs('#pcc').onclick=function(){copy(PC.value,ok)};
+ qs('#pca').onclick=function(){copy('<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n<title>My page</title>\n<style>\n'+PC.value+'\n</style>\n</head>\n<body>\n'+PH.value+'\n</body>\n</html>',ok)};
+ qs('#prs').onclick=function(){pset(PD.h,PD.c);say(ok,'Reset')};
+}
+S.push(
+{l:'layout',t:'Centered card',k:'center centre middle place-items grid card horizontally vertically',d:'The shortest way to center anything, both ways.',c:'<div class="page"><div class="card">Centered card</div></div>\n<style>\n  .page{min-height:200px;display:grid;place-items:center;background:#e6ecff}\n  .card{padding:28px 36px;background:#fff;border-radius:12px;border-top:4px solid #f16529;\n    box-shadow:0 6px 18px rgba(38,77,228,.2)}\n</style>'},
+{l:'layout',t:'Sticky footer',k:'footer bottom flex column min-height 100vh stick',d:'The footer stays at the bottom even when the page is short.',c:'<div class="app">\n  <header>Header</header>\n  <main>Short content</main>\n  <footer>Footer sits at the bottom</footer>\n</div>\n<style>\n  body{margin:0}\n  .app{min-height:100vh;display:flex;flex-direction:column}\n  main{flex:1;padding:12px}\n  header,footer{background:#264de4;color:#fff;padding:10px}\n</style>'},
+{l:'layout',t:'Three-column page',k:'holy grail sidebar header footer columns grid areas stack mobile',d:'Header, sidebar, main, aside and footer. It stacks on narrow screens.',c:'<div class="page">\n  <header>Header</header><nav>Nav</nav>\n  <main>Main</main><aside>Aside</aside><footer>Footer</footer>\n</div>\n<style>\n  .page{display:grid;gap:6px;grid-template-columns:90px 1fr 90px;\n    grid-template-areas:"h h h" "n m a" "f f f"}\n  header{grid-area:h} nav{grid-area:n} main{grid-area:m;min-height:70px}\n  aside{grid-area:a} footer{grid-area:f}\n  .page>*{background:#e6ecff;padding:8px;border-radius:6px}\n  @media (max-width:420px){\n    .page{grid-template-columns:1fr;grid-template-areas:"h" "m" "n" "a" "f"}\n  }\n</style>'},
+{l:'layout',t:'Responsive card grid',k:'cards grid auto-fit minmax responsive gallery columns',d:'Columns appear and disappear as the width changes. Resize the preview.',c:'<div class="cards"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div></div>\n<style>\n  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px}\n  .cards div{padding:20px;text-align:center;color:#fff;background:#264de4;border-radius:8px}\n  .cards div:nth-child(even){background:#f16529}\n</style>'},
+{l:'layout',t:'Navbar',k:'nav navigation bar menu header flex links logo button',d:'Logo on the left, links on the right, one highlighted button.',c:'<nav class="bar"><b>Logo</b><a href="#">Home</a><a href="#">Docs</a><a class="cta" href="#">Sign up</a></nav>\n<style>\n  .bar{display:flex;align-items:center;gap:16px;padding:10px 16px;background:#264de4;color:#fff}\n  .bar a{color:#fff;text-decoration:none}\n  .bar b{margin-right:auto}\n  .cta{background:#f16529;padding:6px 12px;border-radius:6px}\n</style>'},
+{l:'layout',t:'Image beside text',k:'media object image picture avatar side by side flex thumbnail',d:'A fixed-size picture next to flexible text.',c:'<div class="media">\n  <div class="pic"></div>\n  <div><h3>Title</h3><p>Text sits beside the picture and wraps on its own.</p></div>\n</div>\n<style>\n  .media{display:flex;gap:14px;align-items:flex-start}\n  .pic{flex:0 0 80px;height:80px;border-radius:10px;background:linear-gradient(135deg,#f16529,#264de4)}\n  h3{margin:0 0 4px} p{margin:0}\n</style>'}
+);
+M['Centered card']='margin: auto on its own only centers sideways. Use place-items on a grid to center both ways.';M['Sticky footer']='Using position: fixed hides content behind the footer. Let main grow with flex: 1.';M['Three-column page']='No mobile layout. Add a media query so the columns stack.';M['Responsive card grid']='Hard-coding a column count. auto-fit with minmax adapts by itself.';M['Navbar']='Pushing links apart with margins. Give one item margin-right: auto instead.';M['Image beside text']='The image shrinks when space is tight. flex: 0 0 80px locks its size.';
+function initColour(){
+ var pk=qs('#cpk'),hx=qs('#chx'),sw=qs('#csw'),box=qs('#crows'),ct=qs('#cct'),ok=qs('#cok'),vals=[],els=[];
+ ['hex','rgb','hsl'].forEach(function(n,i){var d=document.createElement('div');d.className='crow';d.innerHTML='<span></span><button class="btn">Copy</button>';box.appendChild(d);els.push(d.firstChild);d.lastChild.onclick=function(){copy(vals[i],ok)}});
+ function lum(v){var a=v.map(function(x){x/=255;return x<=.03928?x/12.92:Math.pow((x+.055)/1.055,2.4)});return .2126*a[0]+.7152*a[1]+.0722*a[2]}
+ function hsl(c){var r=c[0]/255,g=c[1]/255,b=c[2]/255,mx=Math.max(r,g,b),mn=Math.min(r,g,b),l=(mx+mn)/2,h=0,s=0,d=mx-mn;if(d){s=d/(1-Math.abs(2*l-1));if(mx===r)h=((g-b)/d)%6;else if(mx===g)h=(b-r)/d+2;else h=(r-g)/d+4;h*=60;if(h<0)h+=360}return[Math.round(h),Math.round(s*100),Math.round(l*100)]}
+ function set(hex){hex=hex.toLowerCase();var c=[1,3,5].map(function(i){return parseInt(hex.substr(i,2),16)}),s=hsl(c);vals=[hex,'rgb('+c.join(', ')+')','hsl('+s[0]+', '+s[1]+'%, '+s[2]+'%)'];els.forEach(function(e,i){e.textContent=vals[i]});sw.style.background=hex;var L=lum(c);ct.textContent='Contrast: white text '+(1.05/(L+.05)).toFixed(1)+':1, black text '+((L+.05)/.05).toFixed(1)+':1. Aim for 4.5 or more.'}
+ pk.oninput=function(){hx.value=pk.value;set(pk.value)};
+ hx.oninput=function(){var v=hx.value.trim();if(v.charAt(0)!=='#')v='#'+v;if(/^#[0-9a-f]{6}$/i.test(v)){pk.value=v.toLowerCase();set(v)}};
+ set('#f16529');
+}
+S.push(
+{l:'page',t:'Landing page',k:'landing hero cta features marketing homepage full page template',d:'A hero, three feature boxes and a footer. Try it, then change the words and colours.',c:'<header class="hero">\n<h1>Learn faster</h1>\n<p>One page. Zero fluff.</p>\n<a class="btn" href="#">Get started</a>\n</header>\n<section class="feats">\n<div><h3>Simple</h3><p>Easy to read.</p></div>\n<div><h3>Fast</h3><p>Light on the browser.</p></div>\n<div><h3>Free</h3><p>No sign up.</p></div>\n</section>\n<footer>Made with HTML and CSS</footer>\n<style>\nbody{margin:0;font-family:system-ui,sans-serif}\n.hero{text-align:center;padding:48px 16px;background:linear-gradient(135deg,#264de4,#2965f1);color:#fff}\n.hero h1{margin:0 0 6px;font-size:clamp(2rem,6vw,3rem)}\n.btn{display:inline-block;margin-top:12px;padding:10px 22px;background:#f16529;color:#fff;border-radius:8px;text-decoration:none;font-weight:700}\n.feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;padding:24px 16px}\n.feats div{padding:16px;border:1px solid #d9e0f5;border-radius:10px;border-top:4px solid #f16529}\nfooter{text-align:center;padding:16px;color:#5b6485}\n</style>'},
+{l:'page',t:'Profile page',k:'profile portfolio about me avatar projects cards resume full page template',d:'An avatar, a short bio and a grid of project cards.',c:'<main class="wrap">\n<div class="avatar">A</div>\n<h1>Ada Lovelace</h1>\n<p class="bio">Front-end learner. Loves tidy layouts.</p>\n<h2>Projects</h2>\n<div class="grid">\n<article><h3>Recipe site</h3><p>HTML and CSS</p></article>\n<article><h3>Photo gallery</h3><p>CSS grid</p></article>\n<article><h3>Landing page</h3><p>Flexbox</p></article>\n</div>\n</main>\n<style>\nbody{margin:0;font-family:system-ui,sans-serif}\n.wrap{max-width:560px;margin:auto;padding:24px 16px;text-align:center}\n.avatar{width:84px;height:84px;margin:auto;border-radius:50%;background:#f16529;color:#fff;font-size:2rem;font-weight:800;display:grid;place-items:center}\n.bio{color:#5b6485}\n.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;text-align:left}\narticle{padding:14px;border-radius:10px;background:#e6ecff;border-left:4px solid #264de4}\nh3,article p{margin:0}\n</style>'},
+{l:'page',t:'Blog article',k:'blog article post reading typography blockquote text full page template',d:'A readable article with a comfortable line length and a pull quote.',c:'<article class="post">\n<p class="tag">CSS | 4 min read</p>\n<h1>Why line length matters</h1>\n<p>Long lines are hard to follow. Keep text between 45 and 75 characters wide.</p>\n<blockquote>Readable text is the best design upgrade.</blockquote>\n<p>Set a max-width in ch units and add a little extra line height.</p>\n</article>\n<style>\nbody{margin:0;font-family:Georgia,serif;line-height:1.7;color:#14213d}\n.post{max-width:60ch;margin:auto;padding:24px 16px}\n.tag{font:700 .8rem system-ui,sans-serif;color:#f16529;text-transform:uppercase;margin:0}\nh1{margin:4px 0 12px;color:#264de4;line-height:1.2}\nblockquote{margin:16px 0;padding:6px 16px;border-left:4px solid #f16529;background:#fff4ef;font-style:italic}\n</style>'}
+);
+M['Landing page']='No viewport meta tag, so phones zoom out. Add it when you copy the full page.';M['Profile page']='Text touching the screen edge. Keep side padding on the wrapper.';M['Blog article']='Full-width text on big screens. Limit it with max-width: 60ch.';
+var QB=[
+{q:'Which tag should hold the main title of a page?',o:['<h1>','<h6>','<title>','<header>'],e:'h1 is the top-level heading. The title tag only sets the browser tab text.'},
+{q:'What does box-sizing: border-box do?',o:['Counts padding and border inside the width','Removes all margins','Adds a shadow','Turns the box into a circle'],e:'Boxes stay the size you set, even when you add padding.'},
+{q:'Which centers an item both ways inside a grid?',o:['place-items: center','text-align: middle','float: center','margin: center'],e:'place-items is shorthand for align-items and justify-items.'},
+{q:'Which attribute helps screen readers describe an image?',o:['alt','title','href','name'],e:'Alt text is read aloud and also shows if the image fails to load.'},
+{q:'Which selector is best for styling many elements the same way?',o:['.card (a class)','#card (an ID)','card (every card tag)','* (everything)'],e:'Classes are reusable and easy to override. An ID can be used only once.'},
+{q:'How do you use a CSS variable named --brand?',o:['var(--brand)','$brand','@brand','brand()'],e:'Define it with --brand, then read it back with var().'}
+];
+['html','css','layout','html','css','css'].forEach(function(g,i){QB[i].g=g});
+QB.push(
+{g:'html',q:'Which element should wrap the main navigation links?',o:['<nav>','<menu>','<links>','<aside>'],e:'nav tells browsers and screen readers that this block holds navigation.'},
+{g:'html',q:'What belongs directly inside a <ul>?',o:['<li> items','Plain text','<td> cells','<option> tags'],e:'Only li elements are valid direct children of a list.'},
+{g:'html',q:'How do you write a less-than sign in page text?',o:['&lt;','<','&less;','//<'],e:'Reserved characters use entities: &lt; for <, &gt; for >, and &amp; for &.'},
+{g:'html',q:'Which input type shows a date picker?',o:['type="date"','type="calendar"','type="time-box"','type="picker"'],e:'Browsers provide a native date picker for type="date".'},
+{g:'css',q:'Which unit is based on the root font size?',o:['rem','px','vh','%'],e:'rem scales with the root font size, which respects reader settings.'},
+{g:'css',q:'Which property animates the change between two states, like on hover?',o:['transition','z-index','position','display'],e:'transition smooths the change from one set of styles to another.'},
+{g:'css',q:'Which property rounds the corners of a box?',o:['border-radius','corner-style','round','outline-radius'],e:'border-radius: 50% turns a square into a circle.'},
+{g:'layout',q:'Which declaration turns a container into a flex container?',o:['display: flex','flex: container','position: flex','align: flex'],e:'display: flex makes the direct children flex items.'},
+{g:'layout',q:'In a row flex container, which property spreads items along the row?',o:['justify-content','align-items','flex-wrap','align-content'],e:'justify-content works on the main axis, which is the row by default.'},
+{g:'layout',q:'What does gap do in flex and grid?',o:['Adds space between items','Adds space outside the container','Changes the font size','Wraps the items'],e:'gap adds space between items without extra margins.'},
+{g:'layout',q:'Which makes grid columns adapt without media queries?',o:['repeat(auto-fit, minmax(110px, 1fr))','width: 33%','float: left','columns: 3px'],e:'auto-fit with minmax adds or removes columns as the space changes.'},
+{g:'layout',q:'To keep a footer at the bottom of a short page, give main:',o:['flex: 1','float: bottom','position: low','height: auto'],e:'In a column flex container, flex: 1 lets main take the spare space.'}
+);
+var QZ=[];
+function initExtras(){
+ var q=qs('#q'),t=qs('#top'),rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+ q.addEventListener('keydown',function(e){if(e.key==='Escape'){q.value='';state.q='';filter();q.blur()}});
+ window.addEventListener('scroll',function(){t.hidden=window.scrollY<700},{passive:true});
+ qs('#prt').onclick=function(){try{window.print()}catch(e){}};
+ t.onclick=function(){window.scrollTo({top:0,behavior:rm?'auto':'smooth'})};
+}
+function initQuiz(){
+ var b=qs('#qbody'),g=qs('#qg'),i=0,sc=0,grp='mix';
+ function deck(){QZ=QB.filter(function(x){return grp==='mix'||x.g===grp}).map(function(x){return{x:x,r:Math.random()}}).sort(function(a,c){return a.r-c.r}).map(function(o){return o.x}).slice(0,6)}
+ [['mix','Mixed'],['html','HTML'],['css','CSS'],['layout','Layouts']].forEach(function(p){var x=document.createElement('button');x.textContent=p[1];x.setAttribute('aria-pressed',p[0]===grp);x.onclick=function(){grp=p[0];g.querySelectorAll('button').forEach(function(y){y.setAttribute('aria-pressed',y===x)});i=0;sc=0;deck();show()};g.appendChild(x)});
+ deck();
+ function show(){
+  if(i>=QZ.length){b.innerHTML='<p class="qs">You scored '+sc+' of '+QZ.length+'.</p><p class="qm">'+(sc===QZ.length?'Perfect. ':sc>=4?'Nice work. ':'Good start. ')+'Check the Watch out notes above, then try again.</p><button class="btn" id="qr">Try again</button>';qs('#qr').onclick=function(){i=0;sc=0;deck();show()};return}
+  var q=QZ[i],gb,done=false;
+  b.innerHTML='<p class="qm">Question '+(i+1)+' of '+QZ.length+'</p><p class="qq"></p><div class="qo"></div><p class="qe" aria-live="polite"></p>';
+  qs('.qq',b).textContent=q.q;
+  var box=qs('.qo',b),ex=qs('.qe',b);
+  q.o.map(function(t,k){return{t:t,k:k,r:Math.random()}}).sort(function(x,y){return x.r-y.r}).forEach(function(o){
+   var x=document.createElement('button');x.className='qopt';x.textContent=o.t;if(o.k===0)gb=x;
+   x.onclick=function(){if(done)return;done=true;var good=o.k===0;if(good)sc++;x.classList.add(good?'good':'bad');gb.classList.add('good');ex.textContent=(good?'Correct. ':'Not quite. ')+q.e;var n=document.createElement('button');n.className='btn';n.textContent=i+1<QZ.length?'Next':'See score';n.onclick=function(){i++;show()};b.appendChild(n)};
+   box.appendChild(x);
+  });
+ }
+ show();
+}
+S.push(
+{l:'css',t:'Aspect ratio and object-fit',k:'aspect-ratio object-fit cover contain image crop square 16/9',d:'Keep a box at a fixed shape, and crop images instead of squashing them.',c:'<img class="pic" alt="Orange and blue halves" src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27200%27 height=%27100%27%3E%3Crect width=%27100%27 height=%27100%27 fill=%27%23f16529%27/%3E%3Crect x=%27100%27 width=%27100%27 height=%27100%27 fill=%27%23264de4%27/%3E%3C/svg%3E">\n<style>\n  .pic{width:200px;aspect-ratio:1/1;object-fit:cover;border-radius:12px}\n</style>'},
+{l:'css',t:'Sticky position',k:'position sticky top header scroll container pin',d:'Scroll the box: the heading sticks to the top.',c:'<div class="scroll">\n  <h4>Sticky heading</h4>\n  <p>Line one</p><p>Line two</p><p>Line three</p><p>Line four</p><p>Line five</p><p>Line six</p>\n</div>\n<style>\n  .scroll{height:130px;overflow:auto;border:2px solid #264de4;padding:0 10px}\n  h4{position:sticky;top:0;margin:0;padding:8px 0;background:#fff;color:#f16529}\n</style>'},
+{l:'css',t:'Style a form',k:'form input focus label button style outline field email',d:'Clear labels, a visible focus ring and a bold button.',c:'<form>\n  <label>Email <input type="email" placeholder="you@example.com"></label>\n  <button type="button">Join</button>\n</form>\n<style>\n  form{display:grid;gap:10px;max-width:260px}\n  label{display:grid;gap:4px;font-weight:700}\n  input{padding:8px 10px;border:2px solid #d9e0f5;border-radius:8px;font:inherit}\n  input:focus{outline:0;border-color:#264de4;box-shadow:0 0 0 3px rgba(38,77,228,.25)}\n  button{padding:10px;border:0;border-radius:8px;background:#f16529;color:#fff;font:inherit;font-weight:700}\n</style>'},
+{l:'css',t:'Dark mode with CSS',k:'prefers-color-scheme dark light theme variables media night',d:'Colors switch with your system theme. Change your device setting to see it.',c:'<div class="card">Follows your system theme</div>\n<style>\n  :root{--bg:#fff;--fg:#14213d}\n  @media (prefers-color-scheme:dark){\n    :root{--bg:#14213d;--fg:#fff}\n  }\n  body{background:var(--bg);color:var(--fg)}\n  .card{padding:20px;border:2px solid #f16529;border-radius:10px}\n</style>'},
+{l:'css',t:'Truncate text',k:'text-overflow ellipsis line-clamp nowrap overflow cut off dots',d:'Cut long text with an ellipsis, on one line or several.',c:'<p class="one">This long sentence is cut off with an ellipsis when it does not fit.</p>\n<p class="two">This one is allowed two lines before it is cut off, which is handy for card descriptions.</p>\n<style>\n  p{width:220px}\n  .one{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}\n  .two{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}\n</style>'}
+);
+M['Aspect ratio and object-fit']='Stretched images. object-fit: cover crops instead of squashing.';M['Sticky position']='sticky needs a top value, and it fails if a parent has overflow: hidden.';M['Style a form']='Removing the focus outline with no replacement. Keyboard users get lost.';M['Dark mode with CSS']='Hard-coded colours. Use variables so one media query switches them all.';M['Truncate text']='text-overflow does nothing without overflow: hidden and white-space: nowrap.';
+R.push('css|aspect-ratio|Keeps a box at a ratio like 16 / 9','css|object-fit|How an image fills its box: cover or contain','css|position: sticky|Sticks to an edge while its container scrolls','css|text-overflow|Shows an ellipsis when text is cut off','css|prefers-color-scheme|Media query for a light or dark system theme','css|:focus-visible|Focus style that shows for keyboard users');
+function favs(){try{return JSON.parse(load('favs')||'[]')}catch(e){return[]}}
+function saveFavs(a){store('favs',JSON.stringify(a))}
+function favUI(){var on=state.f==='fav';qs('#prt').hidden=!on;if(on&&!document.querySelector('.card.starred'))qs('#count').textContent='Nothing saved yet. Tap the star on any example to add it here. Quick lookup stays visible.'}
+var f0=filter;filter=function(){f0();favUI()};
+function slug(t){return t.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
+function load(id){try{return localStorage.getItem('cs:'+id)}catch(e){return null}}
+function store(id,v){try{if(v===null)localStorage.removeItem('cs:'+id);else localStorage.setItem('cs:'+id,v)}catch(e){}}
+function jump(){var id=decodeURIComponent(location.hash.slice(1)),el=id&&document.getElementById(id);if(!el)return;el.hidden=false;if(el.parentNode.hidden)el.parentNode.hidden=false;el.scrollIntoView();el.classList.add('flash');setTimeout(function(){el.classList.remove('flash')},2200)}
+function link(id,el){try{location.hash=id}catch(e){}copy(location.href,el)}
+function initLinks(){document.querySelectorAll('[data-link]').forEach(function(b){b.onclick=function(){var o=document.createElement('span');o.className='ok';b.after(o);link(b.dataset.link,o);setTimeout(function(){o.remove()},1600)}});window.addEventListener('hashchange',jump)}
+function buildRef(){
+ var box=document.getElementById('reflist');
+ R.forEach(function(r){
+  var p=r.split('|'),b=document.createElement('button');
+  b.className='row';b.dataset.lang=p[0];b.dataset.s=(p[1]+' '+p[2]).toLowerCase();
+  b.innerHTML='<code></code><span></span>';
+  b.children[0].textContent=p[1];b.children[1].textContent=p[2];
+  b.onclick=function(){var t=p[1].split(' / ')[0];var x=document.createElement('textarea');x.value=t;document.body.appendChild(x);x.select();try{document.execCommand('copy')}catch(e){}x.remove();if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).catch(function(){});b.classList.add('done');setTimeout(function(){b.classList.remove('done')},1200)};
+  box.appendChild(b);
+ });
+}
+var qs=function(s,r){return(r||document).querySelector(s)};
+var list=qs('#list'),state={f:'all',q:''};
+function wrap(c){return '<!DOCTYPE html><meta charset="utf-8"><style>body{font:15px/1.5 system-ui,sans-serif;margin:14px;color:#14213d}</style>'+c}
+function build(){
+ list.innerHTML='';
+ ['html','css','layout','page'].forEach(function(lang){
+  var g=document.createElement('section');g.className='group '+lang;g.dataset.lang=lang;
+  g.innerHTML='<h2>'+({html:'HTML basics',css:'CSS essentials',layout:'Common layouts',page:'Starter pages'})[lang]+'</h2>';
+  S.filter(function(s){return s.l===lang}).forEach(function(s){
+   var a=document.createElement('article');a.className='card'+(lang==='page'?' tall':'');a.dataset.lang=lang==='html'?'html':'css';a.id=slug(s.t);
+   a.dataset.s=(s.t+' '+s.k+' '+s.c).toLowerCase();
+   a.innerHTML='<header><h3>'+s.t+'</h3><span class="badge '+(lang==='html'?'':'css')+'">'+lang.toUpperCase()+'</span><button class="star" aria-pressed="false" aria-label="Save to my list">☆</button></header><p class="d">'+s.d+'</p>'+(M[s.t]?'<p class="mist"><b>Watch out:</b> '+M[s.t]+'</p>':'')+
+   '<div class="split"><div class="ed"><textarea spellcheck="false" aria-label="Editable code for '+s.t+'"></textarea></div><div class="pv"><iframe sandbox title="Preview of '+s.t+'"></iframe></div></div>'+
+   '<div class="tools"><button data-a="copy">Copy</button><button class="alt" data-a="reset">Reset</button><button class="alt" data-a="link">Link</button><button class="alt" data-a="pg">Try it</button><span class="ok"></span></div>';
+   var ta=qs('textarea',a),fr=qs('iframe',a),ok=qs('.ok',a),tm;
+   var sv=load(a.id);ta.value=sv!==null?sv:s.c;fr.srcdoc=wrap(ta.value);
+   ta.addEventListener('input',function(){clearTimeout(tm);tm=setTimeout(function(){fr.srcdoc=wrap(ta.value);store(a.id,ta.value===s.c?null:ta.value);say(ok,'Saved')},200)});
+   ta.addEventListener('keydown',function(e){if(e.key==='Tab'&&!e.shiftKey&&!e.ctrlKey){e.preventDefault();var p=ta.selectionStart;ta.value=ta.value.slice(0,p)+'  '+ta.value.slice(ta.selectionEnd);ta.selectionStart=ta.selectionEnd=p+2;ta.dispatchEvent(new Event('input'))}});
+   qs('[data-a=reset]',a).onclick=function(){ta.value=s.c;fr.srcdoc=wrap(s.c);store(a.id,null);say(ok,'Reset')};
+   qs('[data-a=link]',a).onclick=function(){link(a.id,ok)};
+   qs('[data-a=pg]',a).onclick=function(){toPlayground(ta.value)};
+   var st=qs('.star',a);
+   function paint(){var on=favs().indexOf(a.id)>-1;a.classList.toggle('starred',on);st.setAttribute('aria-pressed',on);st.textContent=on?'★':'☆'}
+   paint();
+   st.onclick=function(){var f=favs(),k=f.indexOf(a.id);if(k>-1)f.splice(k,1);else f.push(a.id);saveFavs(f);paint();if(state.f==='fav')filter()};
+   qs('[data-a=copy]',a).onclick=function(){copy(ta.value,ok)};
+   g.appendChild(a);
+  });
+  list.appendChild(g);
+ });
+}
+function say(el,m){el.textContent=m;setTimeout(function(){el.textContent=''},1500)}
+function copy(t,el){
+ function fb(){var x=document.createElement('textarea');x.value=t;document.body.appendChild(x);x.select();try{document.execCommand('copy');say(el,'Copied')}catch(e){say(el,'Press Ctrl+C')}x.remove()}
+ if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){say(el,'Copied')},fb)}else fb();
+}
+function playground(ctlId,areaId,outId,sel){
+ var ctl=qs(ctlId),area=qs(areaId),out=qs(outId);
+ function up(){
+  var css=sel+' {\n  display: '+(sel==='.flex'?'flex':'grid')+';\n';
+  area.style.display=sel==='.flex'?'flex':'grid';
+  ctl.querySelectorAll('select').forEach(function(s){area.style.setProperty(s.dataset.p,s.value);css+='  '+s.dataset.p+': '+s.value+';\n'});
+  out.textContent=css+'}';
+ }
+ ctl.addEventListener('change',up);up();
+}
+document.querySelectorAll('[data-copy]').forEach(function(b){b.onclick=function(){var o=document.createElement('span');b.after(o);o.className='ok';copy(qs('#'+b.dataset.copy).textContent,o);setTimeout(function(){o.remove()},1600)}});
+function filter(){
+ var n=0,q=state.q.toLowerCase().trim();
+ document.querySelectorAll('.card').forEach(function(c){
+  var lang=c.dataset.lang||'css';
+  var show=(state.f==='all'||state.f===lang||(state.f==='fav'&&c.classList.contains('starred')))&&(!q||c.dataset.s.indexOf(q)>-1);
+  c.hidden=!show;if(show)n++;
+ });
+ document.querySelectorAll('.row').forEach(function(r){
+  var show=(state.f!=='html'&&state.f!=='css'||state.f===r.dataset.lang)&&(!q||r.dataset.s.indexOf(q)>-1);
+  r.hidden=!show;if(show)n++;
+ });
+ document.querySelectorAll('section.group').forEach(function(g){g.hidden=!g.querySelector('.card:not([hidden]),.row:not([hidden])')});
+ var m=qs('#count');
+ m.innerHTML=n?n+' result'+(n===1?'':'s')+(q?' for “'+q.replace(/</g,'&lt;')+'”':''):'';
+ var e=qs('.empty');if(e)e.remove();
+ if(!n){var d=document.createElement('div');d.className='empty';d.textContent='Nothing matches that. Try a shorter word, like “flex” or “link”.';qs('main').appendChild(d)}
+}
+buildRef();build();playground('#fx','#fxa','#fxo','.flex');playground('#gx','#gxa','#gxo','.grid');filter();initLinks();initPlayground();initColour();initQuiz();initExtras();jump();
+qs('#q').addEventListener('input',function(e){state.q=e.target.value;filter()});
+document.querySelectorAll('.chips button').forEach(function(b){b.onclick=function(){state.f=b.dataset.f;document.querySelectorAll('.chips button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});filter()}});
+document.addEventListener('keydown',function(e){if(e.key==='/'&&document.activeElement.tagName!=='INPUT'&&document.activeElement.tagName!=='TEXTAREA'&&document.activeElement.tagName!=='SELECT'){e.preventDefault();qs('#q').focus()}});
+qs('#theme').onclick=function(){var r=document.documentElement,dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches;r.dataset.theme=dark?'light':'dark'};
