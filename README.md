@@ -15,9 +15,8 @@ An interactive and beginner-friendly reference tool for learning HTML and CSS. T
 ![HTML Preview 2](assets/screenshots/html-preview-2.png)
 
 ### CSS Reference
-![CSS Preview](assets/screenshots/css-preview-1.png)
 
-![CSS Preview 2](assets/screenshots/css-preview-2.png)
+![CSS Preview 1](assets/screenshots/css-preview-1.png)
 
 ### Saved Examples
 ![Saved Examples](assets/screenshots/saved-list-preview.png)
