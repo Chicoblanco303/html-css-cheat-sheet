@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HTML & CSS Cheat Sheet</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+ <div class="bar">
+  <div class="brand">HTML &amp; CSS Cheat Sheet</div>
+  <div class="search"><input id="q" type="search" placeholder="Search: flex, link, margin, table…" aria-label="Search the cheat sheet" autocomplete="off"><kbd>/</kbd></div>
+  <div class="chips" role="group" aria-label="Filter by language">
+   <button data-f="all" aria-pressed="true">All</button><button data-f="html" aria-pressed="false">HTML</button><button data-f="css" aria-pressed="false">CSS</button><button data-f="fav" aria-pressed="false">★ Saved</button>
+  </div>
+  <button class="theme" id="theme" aria-label="Switch light or dark theme">◐</button>
+ </div>
+</header>
+
+<div class="hero">
+ <h1>Edit the code. Watch the page change.</h1>
+ <p>Every example below is live. Change the code on the left and the result updates on the right. Copy what works, reset when you break it.</p>
+</div>
+
+<main>
+ <section class="start" id="start">
+  <h2>Start here</h2>
+  <p>New to this? Follow the path in order. Each step jumps to an example.</p>
+  <ol class="path">
+   <li><a href="#page-skeleton"><b>Page skeleton</b>Every page begins here</a></li>
+   <li><a href="#headings-and-text"><b>Text and links</b>Headings, paragraphs, links</a></li>
+   <li><a href="#lists"><b>Lists and forms</b>Structure your content</a></li>
+   <li><a href="#selectors"><b>Selectors</b>Choose what to style</a></li>
+   <li><a href="#box-model"><b>Box model</b>Margin, padding, border</a></li>
+   <li><a href="#flexbox"><b>Flexbox</b>Line things up</a></li>
+   <li><a href="#centered-card"><b>Common layouts</b>Copy proven recipes</a></li>
+   <li><a href="#media-query"><b>Media queries</b>Make it work on phones</a></li>
+  </ol>
+ </section>
+ <section class="pgd" id="playground">
+  <header><h2>Playground</h2><p>Write your own HTML and CSS. Press Try it on any example below to load it here. Scripts are turned off in the preview.</p></header>
+  <div class="pgw">
+   <div class="ed2">
+    <div class="lab"><span class="badge">HTML</span></div><textarea id="phtml" spellcheck="false" aria-label="Playground HTML"></textarea>
+    <div class="lab"><span class="badge css">CSS</span></div><textarea id="pcss" spellcheck="false" aria-label="Playground CSS"></textarea>
+   </div>
+   <div class="pv"><iframe id="pframe" sandbox title="Playground preview"></iframe></div>
+  </div>
+  <div class="tools"><button id="pch">Copy HTML</button><button id="pcc">Copy CSS</button><button id="pca">Copy full page</button><button class="alt" id="prs">Reset</button><span class="ok" id="pok"></span></div>
+ </section>
+ <div class="meta" id="count" aria-live="polite"></div>
+ <button class="btn" id="prt" hidden>Print my list</button>
+ <div id="list"></div>
+
+ <section class="group css" id="pgs">
+  <h2>Layout playgrounds</h2>
+  <p class="meta" style="margin-top:0">Pick values and see the boxes move. Then copy the CSS.</p>
+
+  <article class="card" id="flexbox" data-s="flexbox flex layout row column justify align gap wrap playground">
+   <header><h3>Flexbox</h3><span class="badge css">CSS</span></header>
+   <p class="d">Lines items up in one direction, then spaces and aligns them.</p>
+   <p class="mist"><b>Watch out:</b> justify-content follows the main axis, so it swaps with align-items when direction is column.</p>
+   <div class="pg">
+    <div class="ctl" id="fx">
+     <label>flex-direction<select data-p="flex-direction"><option>row</option><option>column</option><option>row-reverse</option><option>column-reverse</option></select></label>
+     <label>justify-content<select data-p="justify-content"><option>flex-start</option><option>center</option><option>flex-end</option><option>space-between</option><option>space-around</option><option>space-evenly</option></select></label>
+     <label>align-items<select data-p="align-items"><option>stretch</option><option>flex-start</option><option>center</option><option>flex-end</option></select></label>
+     <label>flex-wrap<select data-p="flex-wrap"><option>nowrap</option><option>wrap</option></select></label>
+     <label>gap<select data-p="gap"><option>0</option><option selected>10px</option><option>24px</option></select></label>
+    </div>
+    <div class="stage"><div class="box-area" id="fxa"><i>A</i><i>B</i><i>C</i><i>D</i><i>E</i></div><pre class="out" id="fxo"></pre></div>
+   </div>
+   <div class="tools"><button data-copy="fxo">Copy CSS</button><button class="alt" data-link="flexbox">Link</button></div>
+  </article>
+
+  <article class="card" id="grid" data-s="grid layout columns rows template gap playground fr">
+   <header><h3>Grid</h3><span class="badge css">CSS</span></header>
+   <p class="d">Places items into rows and columns at the same time.</p>
+   <p class="mist"><b>Watch out:</b> grid properties only work after you set display: grid on the container.</p>
+   <div class="pg">
+    <div class="ctl" id="gx">
+     <label>grid-template-columns<select data-p="grid-template-columns"><option>repeat(2, 1fr)</option><option selected>repeat(3, 1fr)</option><option>repeat(4, 1fr)</option><option>1fr 2fr</option><option>repeat(auto-fit, minmax(90px, 1fr))</option></select></label>
+     <label>gap<select data-p="gap"><option>0</option><option selected>10px</option><option>24px</option></select></label>
+     <label>justify-items<select data-p="justify-items"><option>stretch</option><option>start</option><option>center</option><option>end</option></select></label>
+     <label>align-items<select data-p="align-items"><option>stretch</option><option>start</option><option>center</option><option>end</option></select></label>
+    </div>
+    <div class="stage"><div class="box-area" id="gxa"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div><pre class="out" id="gxo"></pre></div>
+   </div>
+   <div class="tools"><button data-copy="gxo">Copy CSS</button><button class="alt" data-link="grid">Link</button></div>
+  </article>
+ </section>
+ <section class="pgd" id="colour">
+  <header><h2>Colour helper</h2><p>Pick a colour or type a hex code, then copy it as hex, rgb or hsl.</p></header>
+  <div class="cw">
+   <div class="csw" id="csw"></div>
+   <div class="cin"><label>Pick <input type="color" id="cpk" value="#f16529"></label><label>Hex <input type="text" id="chx" value="#f16529" maxlength="7" spellcheck="false"></label><p id="cct"></p><span class="cok" id="cok" aria-live="polite"></span></div>
+   <div id="crows"></div>
+  </div>
+ </section>
+ <section class="pgd" id="quiz">
+  <header><h2>Quick quiz</h2><p>Six questions at a time. Pick a topic. Answers are shuffled each time.</p></header>
+  <div class="qg" id="qg" role="group" aria-label="Quiz topic"></div>
+  <div class="qb" id="qbody"></div>
+ </section>
+ <section class="group" id="ref">
+  <h2>Quick lookup</h2>
+  <p class="meta" style="margin-top:0">Tags and properties in one line each. Click a row to copy it.</p>
+  <div class="refbox" id="reflist"></div>
+ </section>
+</main>
+<footer>Built as a quick reference. Press <kbd>/</kbd> to search and <kbd>Esc</kbd> to clear.</footer>
+<button class="totop" id="top" hidden>Back to top</button>
+
+<script src="script.js"></script>
+</body>
+</html>
