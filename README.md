@@ -2,7 +2,9 @@
 
 An interactive and beginner-friendly reference tool for learning HTML and CSS. This web application provides code examples, live previews, and useful playgrounds to help users understand essential web development concepts.
 
-## Project Overview
+## Project Preview
+
+![HTML & CSS Cheat Sheet Web App](web-project-preview-html-2.png)
 
 The HTML & CSS Cheat Sheet Web App is designed to make learning front-end web development easier through interactive examples and practical coding references.
 
